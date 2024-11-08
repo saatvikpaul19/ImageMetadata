@@ -1,0 +1,79 @@
+﻿#https://exiftool.org/forum/index.php?topic=15238.0
+
+%Image::ExifTool::UserDefined::Inscription = (
+    GROUPS        => { 0 => 'XMP', 1 => 'XMP-Inscription', 2 => 'Image' },
+    NAMESPACE    => { 'Inscription' => 'http://mydomain/Inscription' },
+    WRITABLE      => 'string',
+    Title => { }, 
+    Script => { }, 
+    Language => { }, 
+    Material => { }, 
+    Date => { }, 
+    Traditional_date => { }, 
+    Sculptures_on_the_inscription => { }, 
+    Size_Height_cm => { },
+    Size_Width_cm => { }, 
+    Size_Thick_cm => { }, 
+    Location_Descriptive => { }, 
+    Location_Latitude => { }, 
+    Location_Longitude => { }, 
+    Current_Conservation_Status => { }, 
+    Dynasty => { }, 
+    King => { }, 
+    Summary => { }, 
+    People_names_in_the_inscription => { }, 
+    Place_names_in_the_inscription => { }, 
+    Administrative_Divisions_mentioned_in_the_inscription => { }, 
+    Type => { }, 
+    Bibliography => { }, 
+    Number_Of_lines => { }, 
+    Number_Of_characters => { }, 
+    Number_Of_words => { }, 
+    Comments_Observations => { },
+);
+
+%Image::ExifTool::UserDefined::Character = (
+    GROUPS        => { 0 => 'XMP', 1 => 'XMP-Character', 2 => 'Image' },
+    NAMESPACE    => { 'Character' => 'http://mydomain/Character' },
+    WRITABLE      => 'string',
+    ISO15919_Alphabet => { }, 
+    Line_Number => { }, 
+    Character_Number => { }, 
+    Comments_Observations => { },
+    Number_of_occurences_of_this_character_in_the_inscription => { },
+    Words_containing_this_character => { },
+);
+
+%Image::ExifTool::UserDefined::Image = (
+    GROUPS        => { 0 => 'XMP', 1 => 'XMP-Image', 2 => 'Image' },
+    NAMESPACE    => { 'Image' => 'http://mydomain/Image' },
+    WRITABLE      => 'string',
+    Pixels_X => { },
+    Pixels_Y => { },
+    Image_Quality => { },
+);
+
+# The %Image::ExifTool::UserDefined hash defines new tags to be added
+# to existing tables.
+%Image::ExifTool::UserDefined = (
+    # new XMP namespaces (ie. XXX) must be added to the Main XMP table:
+    'Image::ExifTool::XMP::Main' => {
+        Inscription => {
+            SubDirectory => {
+                TagTable => 'Image::ExifTool::UserDefined::Inscription',
+            },
+        },
+        Character => {
+            SubDirectory => {
+                TagTable => 'Image::ExifTool::UserDefined::Character',
+            },
+        },
+        Image => {
+            SubDirectory => {
+                TagTable => 'Image::ExifTool::UserDefined::Image',
+            },
+        },
+    },
+);
+
+1;  #end

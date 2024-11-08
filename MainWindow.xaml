@@ -1,0 +1,17 @@
+﻿<Window x:Class="CharacterGrade.MainWindow"
+        xmlns:local="clr-namespace:CharacterGrade"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Exif Metadata Tool"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        WindowState="Maximized">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Window.Resources>
+    <!-- Add a Frame control to the main window -->
+    <Grid>
+        <Frame x:Name="frame" />
+        <!--<Button Content="Get started" Click="GetStarted" Margin="185,154,185,154" Visibility="{Binding IsHomePage, Converter={StaticResource BooleanToVisibilityConverter}}" />-->
+    </Grid>
+</Window>
+

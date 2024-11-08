@@ -1,0 +1,197 @@
+﻿<Page x:Class="CharacterGrade.Pages.ImagePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CharacterGrade.Pages"
+      xmlns:vm="clr-namespace:CharacterGrade.ViewModel"
+      xmlns:enum="clr-namespace:CharacterGrade.Models.Enums"
+      xmlns:converter="clr-namespace:CharacterGrade.Converters"
+      xmlns:utils="clr-namespace:CharacterGrade.Utils"
+      xmlns:properties="clr-namespace:CharacterGrade.Utils.AttachedProperties"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Apply metadata to images">
+    <Page.DataContext>
+        <vm:ImagePageViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <converter:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converter:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter" />
+
+        <Style x:Key="BaseTextBoxStyle" TargetType="TextBox">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding (properties:TextBoxProperties.IsRequired), RelativeSource={RelativeSource Self}}"
+                     Value="True">
+                    <Setter Property="BorderBrush" Value="red" />
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="Margin" Value="2"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <DataTemplate x:Key="DateTemplate" DataType="{x:Type enum:MetadataType}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <DatePicker Grid.Column="0" Margin="2" SelectedDate="{Binding Value, Mode=TwoWay}" SelectedDateFormat="Short"></DatePicker>
+                <TextBlock Grid.Column="1" Margin="2,0" Text="Required" FontStyle="Italic" Foreground="Red" Visibility="{Binding IsRequired, Converter={StaticResource BoolToVisibilityConverter}}"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TextTemplate" DataType="{x:Type enum:MetadataType}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400" />
+                    <ColumnDefinition Width="Auto" />
+
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Margin="2" Style="{StaticResource BaseTextBoxStyle}" Text="{Binding Value, Mode=TwoWay}"/>
+                <TextBlock Grid.Column="1" Margin="2,0" Text="Required" FontStyle="Italic" Foreground="Red" Visibility="{Binding IsRequired, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="IntegerTemplate" DataType="{x:Type enum:MetadataType}">
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox Margin="2,0" Style="{StaticResource BaseTextBoxStyle}" TextAlignment="Right" PreviewTextInput="NumericOnlyInt" Text="{Binding Value, Mode=TwoWay}"/>
+                <TextBlock Grid.Column="1" Margin="2,0" Text="Required" FontStyle="Italic" Foreground="Red" Visibility="{Binding IsRequired, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="NumberTemplate" DataType="{x:Type enum:MetadataType}" >
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox Margin="2,0" Style="{StaticResource BaseTextBoxStyle}" TextAlignment="Right" PreviewTextInput="NumericOnlyDouble" Text="{Binding Value, Mode=TwoWay}"/>
+                <TextBlock Grid.Column="1" Margin="2,0" Text="Required" FontStyle="Italic" Foreground="Red" Visibility="{Binding IsRequired, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DropdownTemplate" DataType="{x:Type enum:MetadataType}">
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <ComboBox Grid.Column="0" Margin="2,0" ItemsSource="{Binding DropdownValues, Mode=TwoWay}" SelectedValue="{Binding SelectedValue, Mode=TwoWay}"/>
+                <TextBlock Grid.Column="1" Margin="2,0" Text="Required" FontStyle="Italic" Foreground="Red" Visibility="{Binding IsRequired, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+                <Button Grid.Column="2" Margin="2" Content="Add" Width="50" Visibility="{Binding AllowNewValues, Converter={StaticResource BoolToVisibilityConverter}}" Click="AddNewDropdownValue_Click"/>
+
+            </Grid>
+
+        </DataTemplate>
+
+    </Page.Resources>
+
+
+    <ScrollViewer>
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Visibility="{Binding IsFile, Converter={StaticResource BoolToVisibilityConverter}}">
+                <TextBlock FontWeight="SemiBold" x:Name="tbFolderDirectory" HorizontalAlignment="Center" Margin="5"/>
+
+                <ComboBox x:Name="cbFilesInFolder" SelectionChanged="cbFilesInFolder_SelectionChanged" Margin="5"/>
+
+                <Image x:Name="imgDisplay" Height="300" Width="416" Margin="0,10,0,0"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
+                    <Button Margin="5,5" Padding="5" x:Name="btnPrevious" Click="btnPrevious_Click" Content="Previous" />
+                    <Button Margin="5,5" Padding="5" x:Name="btnNext" Click="btnNext_Click" Content="Next" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Visibility="{Binding IsFile, Converter={StaticResource InverseBoolToVisibilityConverter}}">
+                <TextBlock FontWeight="SemiBold" x:Name="tbFolder" HorizontalAlignment="Center"/>
+
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Text="Note: Any existing metadata in the image files will be overwritten with below changes. Only .jpg, .jpeg, .png images are supported by the tool"/>
+                <!--<TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Text="Number of images in the folder: "/>-->
+            </StackPanel>
+
+            <ItemsControl Grid.Row="2" ItemsSource="{Binding Metadatas}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="400" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0" VerticalAlignment="Center" Content="{Binding Descriptor}"/>
+
+                            <ContentControl VerticalAlignment="Center" x:Name="MetadataTypeController" Grid.Column="1" Content="{Binding}">
+                                <ContentControl.Style>
+                                    <Style TargetType="ContentControl">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Type}" Value="{x:Static enum:MetadataType.date}">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource DateTemplate}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Type}" Value="{x:Static enum:MetadataType.text}">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource TextTemplate}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Type}" Value="{x:Static enum:MetadataType.dropdown}">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource DropdownTemplate}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Type}" Value="{x:Static enum:MetadataType.integer}">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource IntegerTemplate}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Type}" Value="{x:Static enum:MetadataType.number}">
+                                                <Setter Property="ContentTemplate" Value="{StaticResource NumberTemplate}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ContentControl.Style>
+                            </ContentControl>
+
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Margin="5,5" Padding="5" Click="btnAutoFill_Click" Content="Auto fill metadata" Width="200" Height="40">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedMetadataType}" Value="{x:Static enum:MetadataCategory.Character}">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding SelectedMetadataType}" Value="{x:Static enum:MetadataCategory.Image}">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                </Button>
+
+                <Button Margin="5,5" Padding="5" Height="40" Width="200" x:Name="btnSubmit" Click="btnSubmit_Click" Content="Submit"/>
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+</Page>

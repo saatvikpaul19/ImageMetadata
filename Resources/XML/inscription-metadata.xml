@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<metadatas>
+	<metadata required="true" type="text">
+		<key>Title</key>
+		<descriptor>Title</descriptor>
+	</metadata>
+	<metadata required="true" type="dropdown">
+		<key>Script</key>
+		<descriptor>Script</descriptor>
+		<values allowNewValues="false">
+			<value>Kannada</value>
+			<value>Sanskrit</value>
+			<value>Bramhi</value>
+			<value>Devanagari</value>
+		</values>
+	</metadata>
+	<metadata required="true" type="dropdown">
+		<key>Language</key>
+		<descriptor>Language</descriptor>
+		<values allowNewValues="false">
+			<value>Kannada</value>
+			<value>Sanskrit</value>
+			<value>Tamil</value>
+			<value>Telugu</value>
+		</values>
+	</metadata>
+	<metadata required="true" type="dropdown">
+		<key>Material</key>
+		<descriptor>Material</descriptor>
+		<values allowNewValues="false">
+			<value>Stone</value>
+			<value>Pottery</value>
+			<value>Jewelry</value>
+		</values>
+	</metadata>
+	<metadata required="true" type="date">
+		<key>Date</key>
+		<descriptor>Date</descriptor>
+	</metadata>
+	<metadata required="false" type="date">
+		<key>Traditional_date</key>
+		<descriptor>Traditional date</descriptor>
+	</metadata>
+	<metadata required="false" type="text">
+		<key>Sculptures_on_the_inscription</key>
+		<descriptor>Sculptures on the inscription</descriptor>
+	</metadata>
+	<metadata required="false" type="number">
+		<key>Size_Height_cm</key>
+		<descriptor>Height (cm)</descriptor>
+	</metadata>
+	<metadata required="false" type="number">
+		<key>Size_Width_cm</key>
+		<descriptor>Width (cm)</descriptor>
+	</metadata>
+	<metadata required="false" type="number">
+		<key>Size_Thick_cm</key>
+		<descriptor>Thick (cm)</descriptor>
+	</metadata>
+	<metadata required="false" type="number">
+		<key>Location_Latitude</key>
+		<descriptor>Location: Latitude</descriptor>
+	</metadata>
+	<metadata required="false" type="number">
+		<key>Location_Longitude</key>
+		<descriptor>Location: Longitude</descriptor>
+	</metadata>
+	<metadata required="false" type="dropdown">
+		<key>Current_Conservation_Status</key>
+		<descriptor>Current Conservation Status</descriptor>
+		<values allowNewValues="false">
+			<value>Least concern</value>
+			<value>Vulnerable</value>
+			<value>Highly Endangered</value>
+			<value>Not traceable</value>
+		</values>
+	</metadata>
+	<metadata required="false" type="dropdown">
+		<key>Dynasty</key>
+		<descriptor>Dynasty</descriptor>
+		<values allowNewValues="true">
+			<value>Avati</value>
+			<value>Belur</value>
+			<value>Chalukya</value>
+			<value>Channapatna</value>
+			<value>Chinese</value>
+			<value>Chola</value>
+			<value>Ganga</value>
+			<value>Hoysala</value>
+			<value>Jigani</value>
+			<value>Kadamba</value>
+			<value>Kalinga_Ganga</value>
+			<value>Kukkalnadu</value>
+			<value>Mahrattas</value>
+			<value>Mughals</value>
+			<value>Mysore</value>
+			<value>Nolamaba</value>
+			<value>Nripatunga_Kula</value>
+			<value>Pallavas</value>
+			<value>Rashtrakuta</value>
+			<value>Seuana</value>
+			<value>Sigala_nad</value>
+			<value>Sugatur</value>
+			<value>Unclassified</value>
+			<value>Vaidumba</value>
+			<value>Vijaynagar</value>
+			<value>Yelhanka</value>
+		</values>
+	</metadata>
+	<metadata required="false" type="text">
+		<key>King</key>
+		<descriptor>King</descriptor>
+	</metadata>
+	<metadata required="false" type="text">
+		<key>Summary</key>
+		<descriptor>Summary</descriptor>
+	</metadata>
+	<metadata required="false" type="text">
+		<key>People_names_in_the_inscription</key>
+		<descriptor>People names in the inscription</descriptor>
+	</metadata>
+	<metadata required="false" type="text">
+		<key>Place_names_in_the_inscription</key>
+		<descriptor>Place names in the inscription</descriptor>
+	</metadata>
+	<metadata required="false" type="text">
+		<key>Administrative_Divisions_mentioned_in_the_inscription</key>
+		<descriptor>Administrative divisions mentioned in the inscription</descriptor>
+	</metadata>
+	<metadata required="false" type="dropdown">
+		<key>Type</key>
+		<descriptor>Type</descriptor>
+		<values allowNewValues="true">
+			<value>Grant (Dana Shashana) - Grant of Village (Agrahara Dana)</value>
+			<value>Grant (Dana Shashana) - Grant of Town - (Pura Dana)</value>
+			<value>Grant (Dana Shashana) - Grants for Nobility - (Umbali)</value>
+			<value>Grant (Dana Shashana) - Grant of Heroic Deed - (Nettaru Kodige)</value>
+			<value>Grant (Dana Shashana) - Devalaya Dana (Donation to a Temple)</value>
+			<value>Grant (Dana Shashana) - Grant for Village Fair (Santhe)</value>
+			<value>Grant (Dana Shashana) - Construction (Nirmana)</value>
+			<value>Grant (Dana Shashana) - Exemption of Tax (Terige Dana)</value>
+			<value>Grant (Dana Shashana) - Grant of Land (Bhumi Dana)</value>
+			<value>Eulogy (Prashasti)</value>
+			<value>Memorial Stones - Hero Stone (Veeragallu) - Kalnattu</value>
+			<value>Memorial Stones - Hero Stone (Veeragallu) - Battle (Yuddha/Kote Kalaga)</value>
+			<value>Memorial Stones - Hero Stone (Veeragallu) - Capture of village (Ooralivu)</value>
+			<value>Memorial Stones - Hero Stone (Veeragallu) - Border Dispute (Gadi Kalaga)</value>
+			<value>Memorial Stones - Hero Stone (Veeragallu) - Capture of Cattle (Gograhana)</value>
+			<value>Memorial Stones - Hero Stone (Veeragallu) - Protecting Women (Pendirudeyurchu)</value>
+			<value>Memorial Stones - Hero Stone (Veeragallu) - Hunting (Bete) - Wild Boar - (Handi Bete)</value>
+			<value>Memorial Stones - Hero Stone (Veeragallu) - Hunting (Bete) - Tiger - (Huli Bete)</value>
+			<value>Memorial Stones - Hero Stone (Veeragallu) - Fighting Robbers (Daari Kallaru) -</value>
+			<value>Memorial Stones - Wives Self Sacrifice - (Masti Kallu) - Husband and Wives (Veera Masti)</value>
+			<value>Memorial Stones - Wives Self Sacrifice - (Masti Kallu) - Only Wife (Masti Kallu)</value>
+			<value>Memorial Stones - Self Burial (Keelgunte)</value>
+			<value>Memorial Stones - Cutting Throat (Sidi Thale) - Welfare of family (Atmahuthi)</value>
+			<value>Memorial Stones - Cutting Throat (Sidi Thale) - Welfare of King</value>
+			<value>Memorial Stones - Religious - (Dharmika) - Fasting Onto Death (Nisidi)</value>
+			<value>Memorial Stones - Religious - (Dharmika) - Aayaka</value>
+			<value>Memorial Stones - Religious - (Dharmika) - Self Safrice - Swing on religious fire (Uri Uyyale)</value>
+			<value>Memorial Stones - Religious - (Dharmika) - Self Safrice - Sitting on a sharp object (Guta)</value>
+			<value>Memorial Stones - Religious - (Dharmika) - Self Safrice - Falling on a sharp metal rod (Shoola)</value>
+			<value>Donation of Cows (Gosaasa) - Gosaasa Metikallu</value>
+			<value>Donation of Cows (Gosaasa) - Naga Gosaasa</value>
+		</values>
+	</metadata>
+	<metadata required="false" type="text">
+		<key>Bibliography</key>
+		<descriptor>Bibliography</descriptor>
+	</metadata>
+	<metadata required="false" type="integer">
+		<key>Number_Of_lines</key>
+		<descriptor>Number Of lines</descriptor>
+	</metadata>
+	<metadata required="false" type="integer">
+		<key>Number_Of_characters</key>
+		<descriptor>Number Of characters</descriptor>
+	</metadata>
+	<metadata required="false" type="integer">
+		<key>Number_Of_words</key>
+		<descriptor>Number Of words</descriptor>
+	</metadata>
+	<metadata required="false" type="text">
+		<key>Comments_Observations</key>
+		<descriptor>Comments Observations</descriptor>
+	</metadata>
+</metadatas>

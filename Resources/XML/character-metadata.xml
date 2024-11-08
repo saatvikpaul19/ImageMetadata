@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<metadatas>
+	<metadata required="true" type="text">
+		<key>ISO15919_Alphabet</key>
+		<descriptor>ISO15919 Alphabet</descriptor>
+	</metadata>
+	<metadata required="true" type="integer">
+		<key>Line_Number</key>
+		<descriptor>Line Number</descriptor>
+	</metadata>
+	<metadata required="true" type="integer">
+		<key>Character_Number</key>
+		<descriptor>Character Number</descriptor>
+	</metadata>
+	<metadata required="false" type="string">
+		<key>Comments_Observations</key>
+		<descriptor>Comments Observations</descriptor>
+	</metadata>
+	<metadata required="false" type="integer">
+		<key>Number_of_occurences_of_this_character_in_the_inscription</key>
+		<descriptor>Number of occurences of this character in the inscription</descriptor>
+	</metadata>
+	<metadata required="false" type="integer">
+		<key>Words_containing_this_character</key>
+		<descriptor>Words containing this character</descriptor>
+	</metadata>
+</metadatas>

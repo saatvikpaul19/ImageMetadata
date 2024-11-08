@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<metadatas>
+	<metadata required="true" type="integer">
+		<key>Pixels_X</key>
+		<descriptor>Pixels_X</descriptor>
+	</metadata>
+	<metadata required="true" type="integer">
+		<key>Pixels_Y</key>
+		<descriptor>Pixels_Y</descriptor>
+	</metadata>
+	<metadata required="false" type="string">
+		<key>Image_Quality</key>
+		<descriptor>Image Quality</descriptor>
+	</metadata>
+</metadatas>
